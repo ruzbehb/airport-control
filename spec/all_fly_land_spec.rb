@@ -42,7 +42,6 @@ describe "The grand finale (last spec)" do
   it 'all planes can land and all planes can take off' do
   	airport = Airport.new
   	plane = Plane.new
-  	airport.sunny
   	CAPACITY.times{airport.land plane}
   	expect(plane.status?).to eq 'landed'
   	expect(airport.plane_count).to eq CAPACITY
