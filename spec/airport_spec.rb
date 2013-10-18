@@ -11,7 +11,7 @@ require 'weather_condition_spec'
 describe Airport do
   let(:airport) { Airport.new }
   let(:plane) {Plane.new}
-  CAPACITY = 20
+  CAPACITY = 6
   
   def fill_airport_with plane
     CAPACITY.times {airport.land(plane)}
@@ -49,15 +49,15 @@ describe Airport do
 
     it_behaves_like 'weather conditions checker'
 
-    #it 'a plane cannot take off when there is a storm brewing' do
-     # airport.storm  
-      #expect(airport.take_off plane).to eq 'Sorry, storm expected'
-    #end
+    it 'a plane cannot take off when there is a storm brewing' do
+      airport.storm  
+      expect(airport.take_off plane).to eq 'Sorry, storm expected'
+    end
       
-    #it 'a plane cannot land in the middle of a storm' do
-     # airport.storm  
-      #expect(airport.land plane).to eq 'Sorry, storm expected'
-    #end
+    it 'a plane cannot land in the middle of a storm' do
+      airport.storm  
+      expect(airport.land plane).to eq 'Sorry, storm expected'
+    end
 
     end
   end

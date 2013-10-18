@@ -5,12 +5,11 @@ class Airport
 
 	include WeatherCondition
 
-	CAPACITY = 20
+	CAPACITY = 6
 
 	def initialize
 		@planes = []
 		@capacity = CAPACITY
-
 	end
 
 	def plane_count
