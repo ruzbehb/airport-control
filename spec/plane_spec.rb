@@ -36,12 +36,12 @@ describe Plane do
 
   it_behaves_like 'weather conditions checker'
 
-  it 'a plane cannot take off when there is a storm brewing' do
+  it 'a plane cannot take off when there is a storm brewing' do #maybe a redundant test - testing in airport seems enough
       plane.storm
       expect(plane.take_off?).to eq false
   end
       
-  it 'a plane cannot land in the middle of a storm' do
+  it 'a plane cannot land in the middle of a storm' do #maybe a redundant test - testing in airport seems enough
       plane.storm
       expect(plane.land?).to eq false
   end

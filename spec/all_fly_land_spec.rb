@@ -9,7 +9,7 @@ describe "The grand finale (last spec)" do
   
   airport = Airport.new
   plane = Plane.new
-  CAPACITY = 6
+  CAP = 6
 
   it 'does not allow a plane to land when it is stormy' do
   	airport.storm
@@ -18,7 +18,7 @@ describe "The grand finale (last spec)" do
 
   it 'allows all planes to land when it is not stormy' do
   	airport.sunny
-  	CAPACITY.times{airport.land plane}
+  	CAP.times{airport.land plane}
   	expect(airport.plane_count).to eq CAPACITY
   end
 
@@ -42,7 +42,7 @@ describe "The grand finale (last spec)" do
   it 'all planes can land and all planes can take off' do
   	airport = Airport.new
   	plane = Plane.new
-  	CAPACITY.times{airport.land plane}
+  	CAP.times{airport.land plane}
   	expect(plane.status?).to eq 'landed'
   	expect(airport.plane_count).to eq CAPACITY
   	expect(airport.land plane).to eq 'Sorry the airport is full, you can\'t land'
@@ -51,5 +51,4 @@ describe "The grand finale (last spec)" do
   	expect(plane.status?).to eq 'flying'
   end
   
-
 end
