@@ -1,4 +1,5 @@
 require 'airport'
+require 'weather_condition_spec'
 
 #A plane currently in the airport can be requested to take off.
 #
@@ -9,7 +10,7 @@ require 'airport'
 
 describe Airport do
   let(:airport) { Airport.new }
-  let(:plane) {double :Plane}
+  let(:plane) {Plane.new}
   CAPACITY = 20
   
   def fill_airport_with plane
@@ -25,7 +26,7 @@ describe Airport do
     end
     
     it 'a plane can take off' do
-      airport.land(plane)
+      airport.land plane
       airport.take_off plane
       expect(airport.plane_count).to eq 0
     end
@@ -44,19 +45,24 @@ describe Airport do
       expect(airport.land plane).to eq 'Sorry the airport is full, you can\'t land'
     end
     
-    # Include a weather condition using a module.
-    # The weather must be random and only have two states "sunny" or "stormy".
-    # Try and take off a plane, but if the weather is stormy, the plane can not take off and must remain in the airport.
-    # 
-    # This will require stubbing to stop the random return of the weather.
-    # If the airport has a weather condition of stormy,
-    # the plane can not land, and must not be in the airport
     context 'weather conditions' do
-      it 'a plane cannot take off when there is a storm brewing' do
-      end
+
+    it_behaves_like 'weather conditions checker'
+
+    #it 'a plane cannot take off when there is a storm brewing' do
+     # airport.storm  
+      #expect(airport.take_off plane).to eq 'Sorry, storm expected'
+    #end
       
-      it 'a plane cannot land in the middle of a storm' do
-      end
+    #it 'a plane cannot land in the middle of a storm' do
+     # airport.storm  
+      #expect(airport.land plane).to eq 'Sorry, storm expected'
+    #end
+
     end
   end
 end
+
+  
+
+
