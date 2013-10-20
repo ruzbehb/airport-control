@@ -1,7 +1,7 @@
 module WeatherCondition
 
 	@storm_error = 'Sorry, storm expected'
-	@weather_condition = 'sunny'
+	
 	
 
 	def storm_expected?
